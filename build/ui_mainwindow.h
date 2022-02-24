@@ -17,9 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,7 +28,7 @@ public:
     QWidget *centralwidget;
     QFrame *frame;
     QLabel *label;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *label_9;
     QLabel *label_10;
@@ -58,7 +56,7 @@ public:
     QLabel *label_7;
     QFrame *frame_2;
     QLabel *label_5;
-    QWidget *layoutWidget;
+    QWidget *layoutWidget1;
     QGridLayout *gridLayout_2;
     QLineEdit *LE_LOADCELL_CALIB;
     QLineEdit *LE_LOADCELL_CONNECTION;
@@ -71,28 +69,29 @@ public:
     QPushButton *BTN_SET_CALIB;
     QPushButton *BTN_LOADCELL_TARE;
     QLineEdit *LE_LOADCELL_SETTING_VALUE;
-    QWidget *widget1;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout;
     QLabel *label_30;
     QLineEdit *LE_BOARD_CONNECTION;
-    QMenuBar *menubar;
-    QStatusBar *statusbar;
+    QLabel *label_11;
+    QLabel *label_12;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(800, 534);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(30, 80, 471, 391));
+        frame->setGeometry(QRect(20, 80, 471, 391));
         frame->setFrameShape(QFrame::Box);
         frame->setFrameShadow(QFrame::Raised);
+        frame->setLineWidth(3);
         label = new QLabel(frame);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(0, 10, 471, 31));
+        label->setGeometry(QRect(20, 10, 431, 31));
         QFont font;
         font.setFamily(QString::fromUtf8("Lucida Console"));
         font.setPointSize(20);
@@ -100,13 +99,13 @@ public:
         font.setWeight(75);
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
-        widget = new QWidget(frame);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 130, 221, 176));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(frame);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 130, 221, 176));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(widget);
+        label_9 = new QLabel(layoutWidget);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         QFont font1;
         font1.setFamily(QString::fromUtf8("Lucida Console"));
@@ -115,19 +114,19 @@ public:
 
         gridLayout->addWidget(label_9, 1, 0, 1, 1);
 
-        label_10 = new QLabel(widget);
+        label_10 = new QLabel(layoutWidget);
         label_10->setObjectName(QString::fromUtf8("label_10"));
         label_10->setFont(font1);
 
         gridLayout->addWidget(label_10, 2, 0, 1, 1);
 
-        label_16 = new QLabel(widget);
+        label_16 = new QLabel(layoutWidget);
         label_16->setObjectName(QString::fromUtf8("label_16"));
         label_16->setFont(font1);
 
         gridLayout->addWidget(label_16, 3, 0, 1, 1);
 
-        LE_MOTOR_MOVING = new QLineEdit(widget);
+        LE_MOTOR_MOVING = new QLineEdit(layoutWidget);
         LE_MOTOR_MOVING->setObjectName(QString::fromUtf8("LE_MOTOR_MOVING"));
         LE_MOTOR_MOVING->setMinimumSize(QSize(0, 30));
         QFont font2;
@@ -137,7 +136,7 @@ public:
 
         gridLayout->addWidget(LE_MOTOR_MOVING, 3, 1, 1, 1);
 
-        LE_MOTOR_CURRENT = new QLineEdit(widget);
+        LE_MOTOR_CURRENT = new QLineEdit(layoutWidget);
         LE_MOTOR_CURRENT->setObjectName(QString::fromUtf8("LE_MOTOR_CURRENT"));
         LE_MOTOR_CURRENT->setMinimumSize(QSize(0, 30));
         LE_MOTOR_CURRENT->setFont(font2);
@@ -145,13 +144,13 @@ public:
 
         gridLayout->addWidget(LE_MOTOR_CURRENT, 1, 1, 1, 1);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setFont(font1);
 
         gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
-        LE_MOTOR_INIT_STATE = new QLineEdit(widget);
+        LE_MOTOR_INIT_STATE = new QLineEdit(layoutWidget);
         LE_MOTOR_INIT_STATE->setObjectName(QString::fromUtf8("LE_MOTOR_INIT_STATE"));
         LE_MOTOR_INIT_STATE->setMinimumSize(QSize(0, 30));
         LE_MOTOR_INIT_STATE->setFont(font2);
@@ -159,7 +158,7 @@ public:
 
         gridLayout->addWidget(LE_MOTOR_INIT_STATE, 2, 1, 1, 1);
 
-        LE_MOTOR_ENCODER = new QLineEdit(widget);
+        LE_MOTOR_ENCODER = new QLineEdit(layoutWidget);
         LE_MOTOR_ENCODER->setObjectName(QString::fromUtf8("LE_MOTOR_ENCODER"));
         LE_MOTOR_ENCODER->setMinimumSize(QSize(0, 30));
         LE_MOTOR_ENCODER->setFont(font2);
@@ -173,7 +172,7 @@ public:
         BTN_MOTOR_FIND_HOME->setFont(font1);
         LE_MOTOR_SENSOR = new QLineEdit(frame);
         LE_MOTOR_SENSOR->setObjectName(QString::fromUtf8("LE_MOTOR_SENSOR"));
-        LE_MOTOR_SENSOR->setGeometry(QRect(220, 80, 126, 30));
+        LE_MOTOR_SENSOR->setGeometry(QRect(220, 80, 121, 30));
         LE_MOTOR_SENSOR->setMinimumSize(QSize(0, 30));
         LE_MOTOR_SENSOR->setFont(font2);
         LE_MOTOR_SENSOR->setAlignment(Qt::AlignCenter);
@@ -249,7 +248,7 @@ public:
         BTN_MOTOR_FIND_HOME_3->setFont(font1);
         LE_MOTOR_CONNECTION = new QLineEdit(frame);
         LE_MOTOR_CONNECTION->setObjectName(QString::fromUtf8("LE_MOTOR_CONNECTION"));
-        LE_MOTOR_CONNECTION->setGeometry(QRect(220, 50, 117, 30));
+        LE_MOTOR_CONNECTION->setGeometry(QRect(220, 50, 121, 30));
         LE_MOTOR_CONNECTION->setMinimumSize(QSize(0, 30));
         LE_MOTOR_CONNECTION->setFont(font2);
         LE_MOTOR_CONNECTION->setAlignment(Qt::AlignCenter);
@@ -259,21 +258,22 @@ public:
         label_7->setFont(font1);
         frame_2 = new QFrame(centralwidget);
         frame_2->setObjectName(QString::fromUtf8("frame_2"));
-        frame_2->setGeometry(QRect(520, 80, 271, 391));
-        frame_2->setFrameShape(QFrame::StyledPanel);
-        frame_2->setFrameShadow(QFrame::Sunken);
+        frame_2->setGeometry(QRect(510, 80, 271, 391));
+        frame_2->setFrameShape(QFrame::Box);
+        frame_2->setFrameShadow(QFrame::Raised);
+        frame_2->setLineWidth(3);
         label_5 = new QLabel(frame_2);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(0, 10, 271, 31));
+        label_5->setGeometry(QRect(20, 10, 231, 31));
         label_5->setFont(font);
         label_5->setAlignment(Qt::AlignCenter);
-        layoutWidget = new QWidget(frame_2);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 60, 231, 140));
-        gridLayout_2 = new QGridLayout(layoutWidget);
+        layoutWidget1 = new QWidget(frame_2);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(20, 60, 231, 140));
+        gridLayout_2 = new QGridLayout(layoutWidget1);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
-        LE_LOADCELL_CALIB = new QLineEdit(layoutWidget);
+        LE_LOADCELL_CALIB = new QLineEdit(layoutWidget1);
         LE_LOADCELL_CALIB->setObjectName(QString::fromUtf8("LE_LOADCELL_CALIB"));
         LE_LOADCELL_CALIB->setMinimumSize(QSize(0, 30));
         LE_LOADCELL_CALIB->setFont(font2);
@@ -281,7 +281,7 @@ public:
 
         gridLayout_2->addWidget(LE_LOADCELL_CALIB, 3, 1, 1, 1);
 
-        LE_LOADCELL_CONNECTION = new QLineEdit(layoutWidget);
+        LE_LOADCELL_CONNECTION = new QLineEdit(layoutWidget1);
         LE_LOADCELL_CONNECTION->setObjectName(QString::fromUtf8("LE_LOADCELL_CONNECTION"));
         LE_LOADCELL_CONNECTION->setMinimumSize(QSize(0, 30));
         LE_LOADCELL_CONNECTION->setFont(font2);
@@ -289,13 +289,13 @@ public:
 
         gridLayout_2->addWidget(LE_LOADCELL_CONNECTION, 0, 1, 1, 1);
 
-        label_8 = new QLabel(layoutWidget);
+        label_8 = new QLabel(layoutWidget1);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setFont(font1);
 
         gridLayout_2->addWidget(label_8, 1, 0, 1, 1);
 
-        LE_LOADCELL_ERROR = new QLineEdit(layoutWidget);
+        LE_LOADCELL_ERROR = new QLineEdit(layoutWidget1);
         LE_LOADCELL_ERROR->setObjectName(QString::fromUtf8("LE_LOADCELL_ERROR"));
         LE_LOADCELL_ERROR->setMinimumSize(QSize(0, 30));
         LE_LOADCELL_ERROR->setFont(font2);
@@ -303,25 +303,25 @@ public:
 
         gridLayout_2->addWidget(LE_LOADCELL_ERROR, 1, 1, 1, 1);
 
-        label_6 = new QLabel(layoutWidget);
+        label_6 = new QLabel(layoutWidget1);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setFont(font1);
 
         gridLayout_2->addWidget(label_6, 0, 0, 1, 1);
 
-        label_3 = new QLabel(layoutWidget);
+        label_3 = new QLabel(layoutWidget1);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setFont(font1);
 
         gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
 
-        label_4 = new QLabel(layoutWidget);
+        label_4 = new QLabel(layoutWidget1);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setFont(font1);
 
         gridLayout_2->addWidget(label_4, 3, 0, 1, 1);
 
-        LE_LOADCELL_VALUE = new QLineEdit(layoutWidget);
+        LE_LOADCELL_VALUE = new QLineEdit(layoutWidget1);
         LE_LOADCELL_VALUE->setObjectName(QString::fromUtf8("LE_LOADCELL_VALUE"));
         LE_LOADCELL_VALUE->setMinimumSize(QSize(0, 30));
         LE_LOADCELL_VALUE->setFont(font2);
@@ -342,19 +342,19 @@ public:
         LE_LOADCELL_SETTING_VALUE->setGeometry(QRect(20, 290, 101, 41));
         LE_LOADCELL_SETTING_VALUE->setFont(font2);
         LE_LOADCELL_SETTING_VALUE->setAlignment(Qt::AlignCenter);
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(230, 30, 302, 32));
-        horizontalLayout = new QHBoxLayout(widget1);
+        layoutWidget2 = new QWidget(centralwidget);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(230, 30, 302, 32));
+        horizontalLayout = new QHBoxLayout(layoutWidget2);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_30 = new QLabel(widget1);
+        label_30 = new QLabel(layoutWidget2);
         label_30->setObjectName(QString::fromUtf8("label_30"));
         label_30->setFont(font1);
 
         horizontalLayout->addWidget(label_30);
 
-        LE_BOARD_CONNECTION = new QLineEdit(widget1);
+        LE_BOARD_CONNECTION = new QLineEdit(layoutWidget2);
         LE_BOARD_CONNECTION->setObjectName(QString::fromUtf8("LE_BOARD_CONNECTION"));
         LE_BOARD_CONNECTION->setMinimumSize(QSize(0, 30));
         LE_BOARD_CONNECTION->setFont(font2);
@@ -362,14 +362,17 @@ public:
 
         horizontalLayout->addWidget(LE_BOARD_CONNECTION);
 
+        label_11 = new QLabel(centralwidget);
+        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_11->setGeometry(QRect(0, 0, 801, 31));
+        label_11->setFont(font);
+        label_11->setAlignment(Qt::AlignCenter);
+        label_12 = new QLabel(centralwidget);
+        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_12->setGeometry(QRect(0, 490, 801, 31));
+        label_12->setFont(font);
+        label_12->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
-        MainWindow->setMenuBar(menubar);
-        statusbar = new QStatusBar(MainWindow);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        MainWindow->setStatusBar(statusbar);
 
         retranslateUi(MainWindow);
 
@@ -401,6 +404,8 @@ public:
         BTN_LOADCELL_TARE->setText(QCoreApplication::translate("MainWindow", "Tare", nullptr));
         LE_LOADCELL_SETTING_VALUE->setText(QCoreApplication::translate("MainWindow", "200", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Board Connection :", nullptr));
+        label_11->setText(QCoreApplication::translate("MainWindow", "---------------------------------------------------", nullptr));
+        label_12->setText(QCoreApplication::translate("MainWindow", "---------------------------------------------------", nullptr));
     } // retranslateUi
 
 };

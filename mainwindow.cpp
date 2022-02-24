@@ -2,10 +2,10 @@
 #include "ui_mainwindow.h"
 
 void LEGOOD(QLineEdit *le){
-    le->setStyleSheet("QLineEdit{background-color:#03AD23}");
+    le->setStyleSheet("QLineEdit{background-color:#86E57F}");
 }
 void LEBAD(QLineEdit *le){
-    le->setStyleSheet("QLineEdit{background-color:#F41414}");
+    le->setStyleSheet("QLineEdit{background-color:#F15F5F}");
 }
 
 MainWindow::MainWindow(QWidget *parent)
@@ -18,6 +18,15 @@ MainWindow::MainWindow(QWidget *parent)
     timer = new QTimer();
     connect(timer, SIGNAL(timeout()),this,SLOT(onTimer()));
     timer->start(200);
+
+
+    ui->centralwidget->setStyleSheet("QWidget{background-color:#EAEAEA}");
+    ui->frame->setStyleSheet("QWidget{background-color:#FFFFFF}");
+    ui->frame_2->setStyleSheet("QWidget{background-color:#FFFFFF}");
+    ui->BTN_LOADCELL_TARE->setStyleSheet("QWidget{background-color:#8C8C8C}");
+    ui->BTN_MOTOR_FIND_HOME->setStyleSheet("QWidget{background-color:#8C8C8C}");
+    ui->BTN_MOTOR_FIND_HOME_3->setStyleSheet("QWidget{background-color:#8C8C8C}");
+    ui->BTN_SET_CALIB->setStyleSheet("QWidget{background-color:#8C8C8C}");
 }
 
 MainWindow::~MainWindow()
@@ -50,12 +59,12 @@ void MainWindow::onTimer(){
     }else{
         LEBAD(ui->LE_MOTOR_MOVING);
     }
-    if(lan2can->Motor_Data[1].init_state[1] == 1){
+    if(lan2can->Motor_Data[0].init_state[1] == 1){
         LEGOOD(ui->LE_MOTOR_INIT_STATE_3);
     }else{
         LEBAD(ui->LE_MOTOR_INIT_STATE_3);
     }
-    if(lan2can->Motor_Data[1].moving_state[1] == 1){
+    if(lan2can->Motor_Data[0].moving_state[1] == 1){
         LEGOOD(ui->LE_MOTOR_MOVING_3);
     }else{
         LEBAD(ui->LE_MOTOR_MOVING_3);
@@ -66,6 +75,7 @@ void MainWindow::onTimer(){
     ui->LE_MOTOR_ENCODER_3->setText(QString().sprintf("%d",lan2can->Motor_Data[0].encoder[1]));
     ui->LE_MOTOR_CURRENT_3->setText(QString().sprintf("%d",lan2can->Motor_Data[0].current[1]));
 
+    ui->LE_MOTOR_SENSOR->setText(QString().sprintf("%d",lan2can->Motor_Data[0].sonar));
 
 
     //Loadcell==============================================================================

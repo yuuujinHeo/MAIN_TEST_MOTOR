@@ -14,6 +14,25 @@ LAN2CAN::LAN2CAN()
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(onTimer()));
     timer->start(2000);
+
+    Motor_Data[0].connection = 0;
+    Motor_Data[0].current[0] = 0;
+    Motor_Data[0].current[1] = 0;
+    Motor_Data[0].encoder[0] = 0;
+    Motor_Data[0].encoder[1] = 0;
+    Motor_Data[0].init_state[0] = 0;
+    Motor_Data[0].moving_state[0] = 0;
+    Motor_Data[0].init_state[1] = 0;
+    Motor_Data[0].moving_state[1] = 0;
+    Motor_Data[0].sonar = 0;
+    Motor_Data[0].sonar_error = 0;
+    Motor_Data[0].status[0] = 0;
+    Motor_Data[0].status[1 ] = 0;
+
+    Loadcell_Data[0].calib = 0;
+    Loadcell_Data[0].value = 0;
+    Loadcell_Data[0].connection = 0;
+    Loadcell_Data[0].error = 0;
 }
 
 
